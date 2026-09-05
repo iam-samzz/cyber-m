@@ -44,6 +44,7 @@ const MOCK_ABOUT = {
   ],
   // Replace with the real team roster before shipping.
   team: [
+    { name: "Iftesam Parvin", role: "Frontend · Profile & About", initials: "IP" },
     { name: "Team member", role: "Frontend · Profile & About", initials: "IP" },
     { name: "Team member", role: "Role", initials: "TM" },
     { name: "Team member", role: "Role", initials: "TM" },

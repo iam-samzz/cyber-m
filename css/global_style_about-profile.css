@@ -1,0 +1,420 @@
+/* =========================================================
+   CYBERM — Shared base styles & design tokens
+   Used by every page. Page-specific styles live in their
+   own file (e.g. profile.css) and are loaded after this one.
+   ========================================================= */
+
+:root {
+  /* Color */
+  --color-bg:        #f6f4ee;
+  --color-surface:    #ffffff;
+  --color-ink:        #17140f;
+  --color-ink-soft:    #4a453c;
+  --color-muted:      #918c7d;
+  --color-border:      #e4e0d4;
+  --color-border-soft:  #ece9de;
+  --color-accent:      #e35d2b;
+  --color-accent-ink:   #ffffff;
+  --color-track:      #ece9de;
+
+  /* Type */
+  --font-body: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Georgia", "Times New Roman", serif;
+
+  /* Layout */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --container-width: 1120px;
+  --gutter: 32px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------------------------------------------------------
+   Shell — every page sits inside .site, with an optional
+   #app-header slot at the top reserved for the shared navbar
+   that will be dropped in once it exists.
+   --------------------------------------------------------- */
+
+.site {
+  min-height: 100vh;
+}
+
+#app-header:empty {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------------------------------------------------------
+   Breadcrumb + page heading — reused across inner pages
+   --------------------------------------------------------- */
+
+.breadcrumb {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  margin: 0 0 18px;
+}
+
+.page-title {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 32px;
+  color: var(--color-ink);
+}
+
+/* ---------------------------------------------------------
+   Buttons
+   --------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.btn-primary:hover {
+  background: #c94f21;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.btn-outline:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   Card primitive
+   --------------------------------------------------------- */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* ---------------------------------------------------------
+   Stat strip — used on profile + about
+   --------------------------------------------------------- */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  padding: 20px 22px;
+}
+
+.stat-label {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.stat-value {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--color-ink);
+}
+
+@media (max-width: 900px) {
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
+   Panel — bordered content block with a header, used
+   wherever a card needs a title + subtitle + body
+   --------------------------------------------------------- */
+
+.panel {
+  padding: 26px 28px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.panel-subtitle {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--color-muted);
+}
+
+/* ---------------------------------------------------------
+   Badges — used for achievements (profile) and audience
+   tags (about)
+   --------------------------------------------------------- */
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+}
+
+.badge-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.badge.is-locked {
+  color: var(--color-muted);
+  border-style: dashed;
+}
+
+.badge.is-locked .badge-icon {
+  color: var(--color-muted);
+}
+
+/* ---------------------------------------------------------
+   Modal — generic overlay + dialog, used for edit forms
+   --------------------------------------------------------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 20, 15, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  width: 100%;
+  max-width: 440px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-muted);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.modal-close:hover {
+  color: var(--color-ink);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-ink-soft);
+}
+
+.field input[type="text"],
+.field textarea {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  resize: vertical;
+}
+
+.field input[type="text"]:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.field-prefix {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.field-prefix span {
+  padding: 10px 0 10px 12px;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.field-prefix input {
+  border: none !important;
+  background: transparent !important;
+  flex: 1;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ---------------------------------------------------------
+   Focus visibility
+   --------------------------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   Responsive helpers
+   --------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  :root {
+    --gutter: 20px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+}

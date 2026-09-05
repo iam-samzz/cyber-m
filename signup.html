@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberm Workspace - Create Account</title>
+  <link rel="stylesheet" href="css/login_signup_global_style.css">
+  <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Left Section -->
+    <div class="left-section">
+      <div>
+        <div style="color: #ff9800; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px;">
+          Start your workspace
+        </div>
+        <h1>Build your security <br> <span class="highlight">workspace.</span></h1>
+        <p>Bring cybersecurity learning, tools, research and progress together.</p>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <div class="signup-container">
+        <div class="signup-header">Create account</div>
+        <h2 class="signup-title">Create your account.</h2>
+
+        <form id="signupForm" class="signup-form">
+          <div class="form-group">
+            <label for="fullname">Full name</label>
+            <input 
+              type="text" 
+              id="fullname" 
+              name="fullname" 
+              placeholder="type full name" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="you@example.com" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+              type="text" 
+              id="username" 
+              name="username" 
+              placeholder="#name" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              placeholder="••••••••" 
+              required
+            >
+          </div>
+
+          <div class="role-selection">
+            <label class="role-label">What best describes you?</label>
+            <div class="role-buttons">
+              <button type="button" class="role-btn" data-role="student">Student</button>
+              <button type="button" class="role-btn" data-role="researcher">Researcher</button>
+              <button type="button" class="role-btn" data-role="pentester">Pentester</button>
+              <button type="button" class="role-btn" data-role="defender">Defender</button>
+              <button type="button" class="role-btn" data-role="developer">Developer</button>
+              <button type="button" class="role-btn" data-role="ctf-player">CTF Player</button>
+            </div>
+          </div>
+
+          <label class="terms-group">
+            <input type="checkbox" id="terms" name="terms" required>
+            <span>I agree to <a href="#">Terms and Privacy</a></span>
+          </label>
+
+          <button type="submit" class="signup-btn" id="signupBtn">Create account →</button>
+
+          <div class="login-link">
+            Already have an account? <a href="login.html">Log in</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/signup.js"></script>
+</body>
+</html>
